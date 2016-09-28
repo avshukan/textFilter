@@ -10,7 +10,9 @@ package textfilter;
  * @author _
  */
 public class SpamAnalyzer extends KeywordAnalyzer {
-
+ 
+    private String[] keywords;
+    
     SpamAnalyzer(String[] s) {
         this.keywords = new String[s.length];
         System.arraycopy(s, 0, this.keywords, 0, s.length);
@@ -18,14 +20,13 @@ public class SpamAnalyzer extends KeywordAnalyzer {
     }
 
     @Override
-    public Label processText(String text) {
-        for (int i = 0; i < this.keywords.length; i++) {
+    protected String[] getKeywords() {
+        return this.keywords;
+    }
 
-            if (text.contains(this.keywords[i])) {
-                return this.l;
-            }
-        }
-        return Label.OK;
+    @Override
+    protected Label getLabel() {
+        return this.l;
     }
 
 }

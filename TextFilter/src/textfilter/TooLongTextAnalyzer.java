@@ -13,7 +13,7 @@ public class TooLongTextAnalyzer implements TextAnalyzer {
 
     private int maxLength;
 
-    TooLongTextAnalyzer(int m) {
+    public TooLongTextAnalyzer(int m) {
         this.maxLength = m;
     }
 

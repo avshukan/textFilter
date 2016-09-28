@@ -9,20 +9,28 @@ package textfilter;
  *
  * @author _
  */
-public abstract class KeywordAnalyzer implements TextAnalyzer{
+public abstract class KeywordAnalyzer implements TextAnalyzer {
 
     String[] keywords;
     Label l;
 
-    KeywordAnalyzer() {
+    @Override
+    public Label processText(String text) {
+        for (int i = 0; i < this.keywords.length; i++) {
+
+            if (text.contains(this.keywords[i])) {
+                return this.l;
+            }
+        }
+        return Label.OK;
     }
 
-    private String[] getKeywords() {
-        return this.keywords;
-    }
+    protected abstract String[] getKeywords();
 
-    private Label getLabel() {
-        return this.l;
-    }
+    /**
+     *
+     * @return
+     */
+    protected abstract Label getLabel();
 
 }

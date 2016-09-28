@@ -11,6 +11,8 @@ package textfilter;
  */
 public class NegativeTextAnalyzer extends KeywordAnalyzer {
 
+    private String[] keywords;
+
     NegativeTextAnalyzer() {
         String[] s = new String[3];
         this.keywords = new String[3];
@@ -22,14 +24,13 @@ public class NegativeTextAnalyzer extends KeywordAnalyzer {
     }
 
     @Override
-    public Label processText(String text) {
-        for (int i = 0; i < this.keywords.length; i++) {
+    protected String[] getKeywords() {
+        return this.keywords;
+    }
 
-            if (text.contains(this.keywords[i])) {
-                return this.l;
-            }
-        }
-        return Label.OK;
+    @Override
+    protected Label getLabel() {
+        return this.l;
     }
 
 }
