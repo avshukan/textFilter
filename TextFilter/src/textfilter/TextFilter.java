@@ -20,11 +20,14 @@ public class TextFilter {
      */
     public static void main(String[] args) {
         String sss;
-        sss = "spam spam spam :-)";
+        sss = "spa m spaa";
         Label l;
-        TooLongTextAnalyzer ta3;
-        ta3 = new TooLongTextAnalyzer(10);
-        TextAnalyzer[] ta = {ta3};
+        String[] s = new String[1];
+        s[0] = "spam";
+        SpamAnalyzer ta1 = new SpamAnalyzer(s);
+        NegativeTextAnalyzer ta2 = new NegativeTextAnalyzer();
+        TooLongTextAnalyzer ta3 = new TooLongTextAnalyzer(10);
+        TextAnalyzer[] ta = {ta1, ta2, ta3};
         tFilter x = new tFilter();
         l = x.checkLabels(ta, sss);
         switch (l) {

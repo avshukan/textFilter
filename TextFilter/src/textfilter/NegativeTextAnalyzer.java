@@ -11,14 +11,25 @@ package textfilter;
  */
 public class NegativeTextAnalyzer extends KeywordAnalyzer {
 
-    @Override
-    void getKeywords(String[] s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    NegativeTextAnalyzer() {
+        String[] s = new String[3];
+        this.keywords = new String[3];
+        s[0] = ":(";
+        s[1] = "=(";
+        s[2] = ":|";
+        System.arraycopy(s, 0, this.keywords, 0, s.length);
+        this.l = Label.NEGATIVE_TEXT;
     }
 
     @Override
-    Label getLabel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Label processText(String text) {
+        for (int i = 0; i < this.keywords.length; i++) {
+
+            if (text.contains(this.keywords[i])) {
+                return this.l;
+            }
+        }
+        return Label.OK;
     }
-    
+
 }
