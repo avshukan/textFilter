@@ -24,6 +24,11 @@ public class TextFilter {
         Label l;
         String[] s = new String[1];
         s[0] = "spam";
+        
+//        KeywordAnalyzer x1 = new NegativeTextAnalyzer();
+//        KeywordAnalyzer x2 = new SpamAnalyzer(s);
+//        SpamAnalyzer x3 = (SpamAnalyzer) x1;
+        
         SpamAnalyzer ta1 = new SpamAnalyzer(s);
         NegativeTextAnalyzer ta2 = new NegativeTextAnalyzer();
         TooLongTextAnalyzer ta3 = new TooLongTextAnalyzer(10);

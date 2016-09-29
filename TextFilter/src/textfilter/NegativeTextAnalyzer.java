@@ -11,15 +11,10 @@ package textfilter;
  */
 public class NegativeTextAnalyzer extends KeywordAnalyzer {
 
-    private String[] keywords;
+    String[] keywords;
 
     NegativeTextAnalyzer() {
-        String[] s = new String[3];
-        this.keywords = new String[3];
-        s[0] = ":(";
-        s[1] = "=(";
-        s[2] = ":|";
-        System.arraycopy(s, 0, this.keywords, 0, s.length);
+        super();
         this.l = Label.NEGATIVE_TEXT;
     }
 

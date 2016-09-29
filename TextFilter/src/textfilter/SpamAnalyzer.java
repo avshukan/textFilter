@@ -10,12 +10,11 @@ package textfilter;
  * @author _
  */
 public class SpamAnalyzer extends KeywordAnalyzer {
- 
-    private String[] keywords;
-    
+
+    String[] keywords;
+
     SpamAnalyzer(String[] s) {
-        this.keywords = new String[s.length];
-        System.arraycopy(s, 0, this.keywords, 0, s.length);
+        super(s);
         this.l = Label.SPAM;
     }
 
